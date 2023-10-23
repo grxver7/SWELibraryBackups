@@ -6,7 +6,7 @@ public class InteractionsMedia {
         Scanner scanner = new Scanner(System.in);
         int counter = 0;
         String answer;
-        System.out.println("Search:");
+        System.out.println("Search: ");
         String input = scanner.nextLine();
         input = input.toLowerCase();
         for (Map.Entry<String, Media> entry : ObjectsDB.mediaMap.entrySet()) {
