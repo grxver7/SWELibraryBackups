@@ -19,7 +19,7 @@ public class PrepareData {
         int taskID = -1;
         if (line.contains("Person")) {
             //create object
-            if (line.contains("Customer")) {
+            if (line.contains("Kunde")) {
                 taskID = 0;
             } else if (line.contains("Mitarbeiter")) {
                 taskID = 1;
@@ -47,7 +47,7 @@ public class PrepareData {
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((line = br.readLine()) != null) {
-                if (line.startsWith("New_Entity: ")) {
+                if (line.startsWith("Data: ")) {
                     taskID = identifyInputs(line);
 
                 } else {

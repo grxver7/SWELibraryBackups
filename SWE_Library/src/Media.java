@@ -5,5 +5,6 @@ public class Media {
     MediaCategory mediaCategory;
     String name;
     LocalDate publishDate;
+    String publisher;
 }
 
