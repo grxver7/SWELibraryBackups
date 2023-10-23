@@ -1,7 +1,7 @@
 public enum MediaCategory {
-    Book,
+    Buch,
     DVD,
-    Newspaper,
-    Map;
+    Zeitschrift,
+    Landkarte;
 
 }

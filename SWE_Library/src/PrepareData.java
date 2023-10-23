@@ -63,6 +63,10 @@ public class PrepareData {
                         }
                         case 2 -> {
                             cuttedLine = cutterInput(line);
+                            ObjectsDB.createMedia(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], cuttedLine[4]); //personID, personPW, personType
+                        }
+                        /*case 2 -> {
+                            cuttedLine = cutterInput(line);
                             ObjectsDB.createBook(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], cuttedLine[4]); //mediaCategory, mediaID, mediaName, publishDate, publisher
                         }
                         case 3 -> {
@@ -76,7 +80,7 @@ public class PrepareData {
                         case 5 -> {
                             cuttedLine = cutterInput(line);
                             ObjectsDB.createMap(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3]); //mediaCategory, mediaID, mediaName, publishDate
-                        }
+                        }*/
                         case -1 -> {
                             System.out.println("Error reading input!");
                         }

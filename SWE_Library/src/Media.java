@@ -6,5 +6,6 @@ public class Media {
     String name;
     LocalDate publishDate;
     String publisher;
+    LocalDate returnDate;
 }
 
