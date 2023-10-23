@@ -4,6 +4,8 @@ public class Main {
         //Data to object
         String file = "library.csv";
         PrepareData.dataReader(file);
-        Authentication.logIn();
+        //Authentication.logIn();
+        InteractionsMedia.showInventory();
+        //InteractionsMedia.searchItem();
     }
 }

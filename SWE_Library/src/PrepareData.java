@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static java.lang.constant.ConstantDescs.NULL;
+
 public class PrepareData {
 
     private static String[] cutterInput(String line) {
@@ -26,15 +28,11 @@ public class PrepareData {
             }
         }
         if (line.contains("Media")) {
-            if (line.contains("Buch")) {
-                taskID = 2;
-            }
-            if (line.contains("DVD"))
+            if(line.contains("DVD")||line.contains("Landkarte")) {
                 taskID = 3;
-            if (line.contains("Zeitschrift"))
-                taskID = 4;
-            else if (line.contains("Landkarte")) {
-                taskID = 5;
+            }
+            else {
+                taskID = 2;
             }
         }
         return taskID;
@@ -65,22 +63,10 @@ public class PrepareData {
                             cuttedLine = cutterInput(line);
                             ObjectsDB.createMedia(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], cuttedLine[4]); //personID, personPW, personType
                         }
-                        /*case 2 -> {
-                            cuttedLine = cutterInput(line);
-                            ObjectsDB.createBook(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], cuttedLine[4]); //mediaCategory, mediaID, mediaName, publishDate, publisher
-                        }
                         case 3 -> {
                             cuttedLine = cutterInput(line);
-                            ObjectsDB.createDVD(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3]); //mediaCategory, mediaID, mediaName, publishDate
+                            ObjectsDB.createMedia(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], "NaN"); //personID, personPW, personType
                         }
-                        case 4 -> {
-                            cuttedLine = cutterInput(line);
-                            ObjectsDB.createNewspaper(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3], cuttedLine[4]); //mediaCategory, mediaID, mediaName, publishDate, publisher
-                        }
-                        case 5 -> {
-                            cuttedLine = cutterInput(line);
-                            ObjectsDB.createMap(cuttedLine[0], cuttedLine[1], cuttedLine[2], cuttedLine[3]); //mediaCategory, mediaID, mediaName, publishDate
-                        }*/
                         case -1 -> {
                             System.out.println("Error reading input!");
                         }
