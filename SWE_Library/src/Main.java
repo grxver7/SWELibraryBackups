@@ -6,18 +6,18 @@ public class Main {
         //Data to object
         String file = "library.csv";
         PrepareData.dataReader(file);
-        options();
+        int userID = Authentication.logIn(); //noch als Auswahl, später nötig
+        options(userID);
     }
 
-    public static void options() {
+    public static void options(int userID) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("1 Log-In \n 2 ShowInventory \n 3 SerachItem \n 4 rentOptions \n Media Enter your action: ");
+        System.out.print("1 SeeCostumerAccount \n2 ShowInventory \n3 SearchItem \n4 rentOptions \n5 logOut  \n\nMedia Enter your action: ");
         int action = Integer.parseInt(scanner.nextLine());
-        int userID=0;
 
         switch (action) {
             case 1 -> {
-                userID = Authentication.logIn(); //noch als Auswahl, später nötig
+                CostumerAccount.seeCostumerAccount(userID);
             }
             case 2 -> {
                 InteractionsMedia.showInventory();
@@ -28,7 +28,10 @@ public class Main {
             case 4 -> {
                 RentOptions.rentOptions(userID);
             }
+            case 5 -> {
+                userID= Authentication.logOut();
+            }
         }
-        options();
+        options(userID);
     }
 }

@@ -11,9 +11,14 @@ public class Authentication {
         System.out.print("Enter your PW: ");
         String pw = scanner.nextLine();
         Customer customer = ObjectsDB.customerMap.get(id);
+        Employee employee = ObjectsDB.employeeMap.get(id);
         if (customer == null) {
-            System.out.println("Log-In failed");
-            logIn();
+            if (employee == null) {
+                System.out.println("Log-In failed");
+                logIn();
+            } else if (Objects.equals(employee.password, pw)) {
+                System.out.println("Hello");
+            }
         } else if (Objects.equals(customer.password, pw)) {
             System.out.println("Hello");
         } else {
@@ -23,8 +28,8 @@ public class Authentication {
         return id;
     }
 
-    public static void logOut() {
-        logIn();
-        //Token hier auf NULL setzen
+    public static int logOut() {
+        int id = logIn();
+        return id;
     }
 }

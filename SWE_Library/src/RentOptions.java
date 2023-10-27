@@ -7,7 +7,7 @@ public class RentOptions {
 
     public static void rentOptions(int userID) {
         if(!ObjectsDB.employeeMap.containsKey(userID)) {
-            System.out.println("User can't rent or return media, please Log-In as employee!");
+            System.out.println("Option only allowed as employee, please Log-In as employee!");
             return;
         }
 
@@ -19,25 +19,27 @@ public class RentOptions {
         String mediaID = scanner.nextLine();
         String acceptInput = " ";
 
-        System.out.print("What do you want to do? (rent/return): ");
+        System.out.print("What do you want to do? (rent/return/exit): ");
         acceptInput = scanner.nextLine();
         if (acceptInput.equals("return")) {
-            returnMedia(customerID, mediaID);
+            returnMedia(userID, customerID, mediaID);
         } else if (acceptInput.equals("rent")) {
-            rentMedia(customerID, mediaID);
+            rentMedia(userID, customerID, mediaID);
+        } else if (acceptInput.equals("exit")) {
+            Main.options(userID);
         } else {
-            rentOptions();
+            rentOptions(userID);
         }
     }
 
-    public static void returnMedia(int customerID, String mediaID) {
+    public static void returnMedia(int userID, int customerID, String mediaID) {
         if (!ObjectsDB.customerMap.containsKey(customerID)) {
             System.out.println("Error, customer doesn't exists!");
-            rentOptions();
+            rentOptions(userID);
         }
         if (!ObjectsDB.mediaMap.containsKey(mediaID)) {
             System.out.println("Error, Media doesn't exists!");
-            rentOptions();
+            rentOptions(userID);
         }
 
         if (Customer.rentMap.containsKey(customerID)) {
@@ -65,14 +67,14 @@ public class RentOptions {
         }
     }
 
-    public static void rentMedia(int customerID, String mediaID) {
+    public static void rentMedia(int userID, int customerID, String mediaID) {
         if (!ObjectsDB.customerMap.containsKey(customerID)) {
             System.out.println("Error, customer doesn't exists!");
-            rentOptions();
+            rentOptions(userID);
         }
         if (!ObjectsDB.mediaMap.containsKey(mediaID)) {
             System.out.println("Error, Media doesn't exists!");
-            rentOptions();
+            rentOptions(userID);
         }
 
         if (Customer.rentMap.containsKey(customerID)) {
@@ -82,7 +84,7 @@ public class RentOptions {
                 System.out.println(rentedMedia);
             } else {
                 System.out.println("Costumer already has this media!");
-                rentOptions();
+                rentOptions(userID);
             }
         }
 
