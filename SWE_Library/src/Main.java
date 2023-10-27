@@ -9,7 +9,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("1 Log-In \n 2 ShowInventory \n 3 SerachItem \n Enter your action: ");
+        System.out.print("1 Log-In \n 2 ShowInventory \n 3 SerachItem \n 4 returnMedia \n 5 rentMedia Enter your action: ");
         int action = Integer.parseInt(scanner.nextLine());
         switch (action) {
             case 1 -> {
@@ -20,6 +20,12 @@ public class Main {
             }
             case 3 ->{
                 InteractionsMedia.searchItem();
+            }
+            case 4 ->{
+                RentOptions.returnMedia();
+            }
+            case 5 ->{
+                RentOptions.rentMedia();
             }
         }
     }

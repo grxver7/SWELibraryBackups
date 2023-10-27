@@ -10,7 +10,11 @@ public class Authentication {
         System.out.print("Enter your PW: ");
         String pw = scanner.nextLine();
         Customer customer = ObjectsDB.customerMap.get(id);
-        if (Objects.equals(customer.password, pw)) {
+        if (customer==null) {
+            System.out.println("Log-In failed");
+            logIn();
+        }
+        else if (Objects.equals(customer.password, pw)) {
             System.out.println("Hello");
         }
         else {
