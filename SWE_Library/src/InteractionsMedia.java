@@ -31,7 +31,7 @@ public class InteractionsMedia {
     }
 
     public static void showInventory() {
-    // Define a custom comparator to sort Media objects first by mediaCategory and then by name
+        // Define a custom comparator to sort Media objects first by mediaCategory and then by name
         Comparator<Map.Entry<String, Media>> mediaCategoryNameComparator = new Comparator<Map.Entry<String, Media>>() {
             @Override
             public int compare(Map.Entry<String, Media> entry1, Map.Entry<String, Media> entry2) {
@@ -73,5 +73,6 @@ public class InteractionsMedia {
         if (counter == 0) {
             String answer = "Product doesn't exist in this storage";
             System.out.println(answer);
-        }    }
+        }
+    }
 }
