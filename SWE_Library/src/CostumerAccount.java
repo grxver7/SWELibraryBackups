@@ -8,11 +8,15 @@ public class CostumerAccount {
         String answer;
 
         if (!ObjectsDB.customerMap.containsKey(userID)) {
-            System.out.println("This option is only for costumers!");
+            System.out.println("This option is only for costumers! \n");
             return;
         }
         HashMap <String, LocalDate> accountInformation = Customer.rentMap.get(userID);
 
+        if (accountInformation==null) {
+            System.out.println("Costumer has no media rent!");
+            Main.options(userID);
+        }
         for (String key : accountInformation.keySet()) {
             Media media = ObjectsDB.mediaMap.get(key);
             answer = "Searchresult " + counter + ": ";

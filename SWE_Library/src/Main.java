@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Data to object
-        String file = "library.csv";
+        String file = "SWE_Library/library.csv";
         PrepareData.dataReader(file);
         int userID = Authentication.logIn(); //noch als Auswahl, später nötig
         options(userID);
